@@ -11,10 +11,6 @@ html {
   fill: var(--dark-text-color);
 }
 
-.header {
-  background-color: rgba(var(--dark-primary-color), 0.95);
-}
-
 .nav-hamburger-list {
   background: rgba(var(--dark-primary-color), 1);
 }

@@ -21,7 +21,7 @@
 }
 
 html {
-  background-color: rgb(var(--light-primary-color));
+  background: linear-gradient(180deg, rgba(35,20,48,1) 10%, rgba(63,19,36,1) 70%, rgba(36,60,63,1) 100%);
   color: var(--light-text-color);
   font-family: "Lato", sans-serif;
   font-size: 17.5px;
@@ -124,7 +124,6 @@ img {
 
 /* HEADER */
 .header {
-  background-color: rgba(var(--light-primary-color), 0.95);
   color: inherit;
   height: 50px;
   left: 0;
@@ -150,7 +149,6 @@ img {
   margin-left: 15px;
 }
 .header-nav .avatar img {
-  border-radius: 100%;
   display: block;
   height: 38px;
   margin-top: 5px;
@@ -376,8 +374,17 @@ table td {
 }
 
 /* HOME PAGE */
-.home-about {
-  text-align: center;
+.welcome {
+  font-size: 2em;
+  margin-top: 2em;
+}
+
+.home-about .hero img{
+  z-index: -1;
+  height: 90vh;
+  position: absolute;
+  top: 50px;
+  right: 20px;
 }
 
 .home-about .avatar img {
