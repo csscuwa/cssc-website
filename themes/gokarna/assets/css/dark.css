@@ -6,8 +6,13 @@
 }
 
 html {
+  background-color: rgb(var(--dark-primary-color));
   color: var(--dark-text-color);
   fill: var(--dark-text-color);
+}
+
+.header {
+  background-color: rgba(var(--dark-primary-color), 0.95);
 }
 
 .nav-hamburger-list {
@@ -80,6 +85,10 @@ pre {
 
 .header-shadow {
   box-shadow: rgb(33, 38, 45) 0px -1px 0px 0px inset;
+}
+
+.arrow-logo { 
+  background-color: var(--dark-secondary-color);
 }
 
 /* TODO: Check if this is needed or not */

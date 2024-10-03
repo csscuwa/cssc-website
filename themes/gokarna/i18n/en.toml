@@ -1,5 +1,7 @@
 [Recent]
-  other = 'Recent'
+  other = 'Recent Posts'
+[Popular]
+  other = 'Posts'
 [error404]
   other = 'This page does not exist, go'
 [home]
@@ -10,3 +12,5 @@
   other = 'Previous'
 [next]
   other = 'Next'
+[tags]
+  other = 'Tags'

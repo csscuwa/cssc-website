@@ -49,7 +49,7 @@ Keep an eye on this space for my upcoming projects
 
 ### Table of Contents
 
-To show `Table of Contents`, update your config by adding 
+To show `Table of Contents`, update your config by adding
 ```toml
 [markup]
   [markup.tableOfContents]
@@ -79,13 +79,39 @@ The `weight` attribute can be added in the markdown metadata for `post` types. W
 2. Show recent posts on home page if the value is set to `recent`
 3. Do not show anything if the variable is unset or an empty string.
 
+## Homepage
+
+### About description text
+
+In extension to the basic configuration with the `description` field, it's also possible to write the about section using markdown.
+Create a file called `index-about.md` in the `content` directory and write your content there.
+
+> **Attention**: Don't use frontmatter in this file. It would also render it.
+
+```markdown
+# Gokarna
+Gokarna is a small temple town located in the Uttara Kannada district of Karnataka state in southern India.
+
+## Beaches
+Something about beaches, **which is *very* important**.
+
+- every
+- beach
+- is beautiful
+```
+
+Having the above about section in place, results in the following homepage:
+
+![Markdown about description](/images/theme-documentation-advanced/homepage-markdown-about-description.png "Markdown about description")
+
+
 ## Icons
 Gokarna supports popular social media icons (Github, Linkedin, Twitter, StackOverflow, Dribbble, etc.) out of the box. See full list of supported icons [here](https://github.com/526avijitgupta/gokarna/tree/main/static/icons).
 
 ### Icons on homepage
 
-To display icons on the homepage, simply update the `socialIcons` config param with a list of name and url of each icon. The specified `name` should exactly match one of the names from [here](https://github.com/526avijitgupta/gokarna/tree/main/static/icons).
-If you want to add more icons, you can download the svg directly from [here](https://simpleicons.org/)  and place them in your local icons directory (`/static/icons/`)
+To display icons on the homepage, simply update the `socialIcons` config param with a list of name and url of each icon. The specified `name` should exactly match one of the names from [here](https://github.com/526avijitgupta/gokarna/tree/main/static/svg/icons).
+If you want to add more icons, you can download the svg directly from [here](https://simpleicons.org/)  and place them in your local icons directory (`/static/svg/icons/`)
 
 ```toml
   [params]
@@ -126,10 +152,39 @@ The same icon in this case could also be added without feather:
     pre = "<img class='svg-inject' src='/icons/github.svg' />"
 ```
 
+You can add `params` allowing menu link to open in a new tab, for example: 
+```toml
+[[menu.main]]
+  identifier = "github"
+  url = "https://github.com/zerodahero"
+  weight = 4
+  # We use feather-icons: https://feathericons.com/
+  pre = "<span data-feather='github'></span>"
+  [menu.main.params]
+    newPage = true
+```
 
-## Custom Head HTML
+## Custom Head and Footer HTML
 
 The goal of this feature is to give the user more control over the theme. It's functioning is very straightforward - "You can inject any HTML you want in the `<head>` tag" . This may seem simple at first, but it opens up a lot of possibilities.
+
+## Custom Comment HTML 
+
+Similar to custom head and footer HTML, you can add custom HTML for comments at the end of every post. Its in a `<div>` with the id `comments` which can be then customized with your external CSS.
+
+The purpose of this is to freely use any comments platform of your choosing
+
+### For example
+```toml 
+customCommentHTML = """
+<script src="https://utteranc.es/client.js"
+    repo="526avijitgupta/gokarna"
+    issue-term="title"
+    theme="github-dark"
+    crossorigin="anonymous"
+    async></script>
+"""
+```
 
 ### Bring your own scripts
 
@@ -138,6 +193,11 @@ Add your own JavaScript or CSS by putting them in the `static/` folder and impor
 ```toml
 [params]
   customHeadHTML = '''
+    <script>console.log("Custom script or import");</script>
+    <script src="/js/custom.js"></script>
+  '''
+  customFooterHTML = '''
+    <div>Comment SDK Integration</div>
     <script>console.log("Custom script or import");</script>
     <script src="/js/custom.js"></script>
   '''
@@ -193,6 +253,22 @@ Then the equation `$$y_t = \beta_0 + \beta_1 x_t + \epsilon_t$$` wrapped by doub
 
 The equation `$y_t = \beta_0 + \beta_1 x_t + \epsilon_t$` wrapped by single `$` would be displayed inline as $y_t = \beta_0 + \beta_1 x_t + \epsilon_t$.
 
+### Comments
+
+Integration with any comments SDK is possible. All you have to do is add the relevant HTML/JavaScript in the `customFooterHTML` param.
+
+An example with commento:
+
+```toml
+[params]
+  customFooterHTML = '''
+    <div id="commento"></div>
+    <script defer src="{{ .Site.Params.CommentoURL }}/js/commento.js"></script>
+    <noscript>Please enable JavaScript to load the comments.</noscript>
+  '''
+```
+
+
 ## Syntax Highlighting
 
 Hugo lets you choose the color scheme for the codeblocks. You can choose from the options here: https://xyproto.github.io/splash/docs/all.html
@@ -241,3 +317,53 @@ and the `metaKeywords` specified in the config.toml:
 [params]
   metaKeywords = ["blog", "gokarna", "hugo"]
 ```
+
+## Hide tags, date or description of posts
+
+Tags can be used to categorize posts (e.g.: Project or Blog), and be hidden on
+the posts. Use the `params.hiddenTags` field in `hugo.toml`.  
+A post's date and description can be hidden if it has at least one tag listed in
+`params.tagsHidePostDate` or `params.tagsHidePostDescription`, respectively.
+
+
+```toml
+[params]
+  [params.hidden]
+  tags = ["project", "blog"]
+  tagsPostDate = ["project"]
+  tagsPostDescription = ["project"]
+  [menu]
+    [[menu.main]]
+      identifier = "projects"
+      url = "/tags/project/"
+      name = "My Projects"
+      weight = 1
+    [[menu.main]]
+      identifier = "blog"
+      url = "/tags/blog/"
+      name = "Blog"
+      weight = 2
+```
+
+## Site-wide copyright notice
+
+Define the [copyright notice for your site](https://gohugo.io/methods/site/copyright/). The notice will only be displayed on [page Kinds](#content-types).
+
+For example, the following configuration in `config.toml` and front matter respectively...
+
+```toml
+copyright = "Verbatim copying and distribution of this entire article are permitted worldwide, without royalty, in any medium, provided this notice is preserved."
+```
+
+```
+date: 2020-06-17
+lastmod: 2024-02-05
+```
+
+Will produce this footer:
+
+> © 2020-2024 The Marauders Verbatim copying and distribution of this entire article are permitted worldwide, without royalty, in any medium, provided this notice is preserved.
+
+`copyright` can include [Markdown syntax](https://www.markdownguide.org/tools/hugo/). This is best used for including hyperlinks, emoji, or text formatting.
+
+The years of `.Date` and `.Lastmod` are used to create a date range for your copyrighted material. [dateFormat](/posts/theme-documentation-basics/#date-format) **must** be set in `config.toml` if `.Lastmod` is present in any front matter.
