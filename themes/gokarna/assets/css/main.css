@@ -149,12 +149,18 @@ img {
   margin-left: 15px;
 }
 .header-nav .avatar img {
-  display: block;
+  display: inline;
   height: 38px;
   margin-top: 5px;
   overflow: hidden;
   width: 38px;
 }
+
+.header-nav .avatar .avatar-text {
+  padding-left: 10px;
+  width: 5em;
+}
+
 .header-nav .nav-title {
   display: inline-block;
   height: 100%;
@@ -420,7 +426,7 @@ table td {
 }
 
 .home-about h1 {
-  font-size: 2em;
+  font-size: 4em;
 }
 
 .social-icons {

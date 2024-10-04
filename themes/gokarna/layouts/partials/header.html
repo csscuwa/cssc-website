@@ -5,13 +5,10 @@
         <div class="avatar">
             <a href="{{ .Site.BaseURL }}">
                 <img src='{{ .Scratch.Get "avatarImgSrc" }}' alt="{{ .Site.Params.AvatarAltText|default "avatar" }}">
+                <img class="avatar-text" src="{{ .Site.Params.AvatarTextURL }}" alt="{{ .Site.Params.AvatarAltText|default "avatar" }}" />
             </a>
         </div>
         {{ end }}
-
-        <div class="nav-title">
-            <a class="nav-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-        </div>
 
         <div class="nav-links">
             {{ range .Site.Menus.main }}
