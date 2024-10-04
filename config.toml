@@ -5,6 +5,7 @@ languageCode = "en-au"
 defaultContentLanguage = "en"
 enableEmoji = true
 enableRobotsTXT = true
+image = "/branding/cssc_logo_256.png"
 
 # Choose one of emacs, trac or perldoc
 pygmentsStyle = "monokai"
