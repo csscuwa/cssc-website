@@ -1,6 +1,14 @@
 # CSSC Website
 
-Requires `hugo` to be installed on your local machine.
+## Local Setup
+
+Ensure hugo is installed on your system: https://gohugo.io/installation/
+
+Clone the repository and initialise submodules.
+```bash
+git clone https://github.com/csscuwa/cssc-website
+git submodule init
+```
 
 Run `hugo server` in the root directory of this repository to preview the site locally.
 
