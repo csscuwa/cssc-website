@@ -27,6 +27,7 @@ html {
   font-size: 17.5px;
   min-height: 100%;
   position: relative;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -123,6 +124,7 @@ img {
 
 /* HEADER */
 .header {
+  color: inherit;
   height: 50px;
   left: 0;
   position: fixed;
@@ -146,13 +148,12 @@ img {
   height: 100%;
   margin-left: 15px;
 }
-
 .header-nav .avatar img {
   display: inline;
+  height: 38px;
   margin-top: 5px;
   overflow: hidden;
   width: 38px;
-  height: 38px;
 }
 
 .header-nav .avatar .avatar-text {
@@ -183,6 +184,12 @@ img {
   padding: 0 6px;
 }
 .nav-link a svg {
+  height: 20px;
+  margin: -3px auto;
+  stroke-width: 2;
+  width: 20px;
+}
+.nav-item a svg {
   height: 20px;
   margin: -3px auto;
   stroke-width: 2;
@@ -243,11 +250,12 @@ a:hover .feather-sun {
   bottom: 0;
   color: inherit;
   left: 0;
+  margin-left: 30%;
   overflow: hidden;
   padding: 40px 0;
   position: absolute;
   text-align: center;
-  width: 100%;
+  width: 40%;
 }
 
 .footer span {
@@ -326,6 +334,18 @@ pre code {
   font-size: 0.9em;
 }
 
+/*
+Fix iOS font sizing in code blocks
+Author: https://github.com/bglw
+Source: https://github.com/adityatelange/hugo-PaperMod/issues/828#issuecomment-1171994855
+*/
+code {
+  text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 blockquote {
   border-left: 2px solid var(--light-secondary-color);
   color: grey;
@@ -360,7 +380,7 @@ table td {
 }
 
 /* HOME PAGE */
-.home-about, .welcome {
+.welcome {
   font-size: 2em;
   margin-top: 2em;
 }
@@ -371,6 +391,46 @@ table td {
   position: absolute;
   top: 50px;
   right: 20px;
+}
+
+.home-about .avatar img {
+  border-radius: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Avatar sizes (default is M) - XS, S, M, L, XL */
+.home-about .avatar img.size-xs {
+  height: 7rem;
+  width: 7rem;
+}
+
+.home-about .avatar img.size-s {
+  height: 9rem;
+  width: 9rem;
+}
+
+.home-about .avatar img.size-m {
+  height: 11rem;
+  width: 11rem;
+}
+
+.home-about .avatar img.size-l {
+  height: 13rem;
+  width: 13rem;
+}
+
+.home-about .avatar img.size-xl {
+  height: 15rem;
+  width: 15rem;
+}
+
+.home-about h1 {
+  font-size: 4em;
+}
+
+.social-icons {
+  text-align: center;
 }
 
 .social-icons .social-icons-list {
@@ -393,9 +453,15 @@ table td {
   transition: fill 0.15s ease;
 }
 
+.markdown-content {
+  line-height: 1.25;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .home-posts {
-  margin: auto;
-  padding-top: 20px;
+  margin: 0 auto;
+  padding-top: 10px;
   width: 80%;
 }
 
@@ -515,6 +581,12 @@ table td {
     display: block;
   }
 
+  .home-about .avatar img {
+    border-radius: 50%;
+    height: 7rem;
+    width: 7rem;
+  }
+
   .nav-links .nav-link,
   .nav-icons-divider {
     display: none;
@@ -530,11 +602,16 @@ table td {
     width: auto;
   }
 
+  .markdown-content, .home-posts {
+    width: auto;
+    margin: 0;
+  }
+
   main#content .container {
     width: 100%;
   }
 
-  .home-about, .home-content {
+  .home-about {
     margin: 0 auto;
   }
 
@@ -548,6 +625,11 @@ table td {
 
   .list-posts .post-date {
     color: gray;
+  }
+
+  .footer {
+    margin-left: 0;
+    width: 100%;
   }
 }
 
@@ -579,4 +661,36 @@ table td {
 
 .prev-post, .next-post {
   max-width: 33%;
+}
+
+/* back to top button  */
+.arrow-logo {
+  background-color: transparent;
+  border-radius: 50%;
+  bottom: 20px;
+  cursor: pointer;
+  display: none;
+  font-size: 24px;
+  padding: 10px;
+  padding-right: 8px;
+  position: fixed;
+  right: 20px;
+  z-index: 5;
+  background-color: var(--light-tertiary-color);
+  width: 25px;
+  height: 25px;
+}
+
+.arrow-logo path{
+  fill: var(--light-secondary-color)
+}
+
+.arrow-logo:hover {
+  fill:  var(--accent-color); 
+}
+
+@media screen and (max-width: 600px) {
+  #btt-button {
+      visibility: hidden;
+  }
 }

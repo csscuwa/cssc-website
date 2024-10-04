@@ -27,9 +27,7 @@ cd my_website
 
 The theme’s repository is: [https://github.com/526avijitgupta/gokarna](https://github.com/526avijitgupta/gokarna).
 
-You can download the [latest release :books: .zip file](https://github.com/526avijitgupta/gokarna/releases) of the theme and extract it in the `themes` directory.
-
-Alternatively, clone this repository to the `themes` directory:
+You can clone this repository to the `themes` directory:
 
 ```bash
 git clone https://github.com/526avijitgupta/gokarna.git themes/gokarna
@@ -148,6 +146,9 @@ In addition to [Hugo global configuration](https://gohugo.io/overview/configurat
   # Accent color is displayed when you hover over <a> tags
   accentColor = "#FF4D4D"
 
+  # Display "back to top" button on posts and pages
+  ShowBackToTopButton = true
+
   # You can use this to inject any HTML in the <head> tag.
   # Ideal usecase for this is to import custom js/css or add your analytics snippet
   customHeadHTML = ""
@@ -159,6 +160,10 @@ In addition to [Hugo global configuration](https://gohugo.io/overview/configurat
   # "popular" (order posts by weight), "recent" (order posts by date)
   # or "" (do not display, default option)
   showPostsOnHomePage = ""
+
+  # Defines number of posts displayed on homepage if showPostsOnHomePage option is set
+  # Default value is 4
+  numberPostsOnHomePage = 4
 
   # Footer text
   footer = "The Marauders"
@@ -207,9 +212,20 @@ If you want to display posts on the homepage, the options are:
 - `recent`: Show recent posts on home page if the value is set to recent
 - Do not show anything if the variable is unset or an empty string.
 
+You can define how many posts will be displayed on homepage by setting `numberPostsOnHomePage`. If `numberPostsOnHomePage` is absent (empty) or zero the default value is used.
+
 ```toml
 [params]
   showPostsOnHomePage = "popular"
+  numberPostsOnHomePage = 3
+```
+
+### Date format 
+The date format being used across can be chaged. For valid date strings see: https://pkg.go.dev/time#pkg-constants
+
+```toml 
+[params]
+  dateFormat = "2 January, 2006"
 ```
 
 ### Footer
@@ -220,6 +236,8 @@ Text to display in the footer section
 [params]
   footer = "Text in footer"
 ```
+
+`footer` can include [Markdown syntax](https://www.markdownguide.org/tools/hugo/). This is best used for including hyperlinks, emoji, or text formatting.
 
 ### Previous and Next buttons
 
@@ -236,7 +254,7 @@ If any post YAML contains `weight:`, the posts will not appear by Date. See [Hug
 
 ### Displaying content on the homepage
 
-Content to display on homepage below the social icons, using the contents of `content/_index.md`.
+Content to display on homepage below the social icons, using the contents of `content/index-about.md`.
 
 ### Custom Head HTML
 

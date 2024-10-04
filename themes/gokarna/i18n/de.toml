@@ -1,5 +1,7 @@
 [Recent]
-    other = 'Letzte'
+    other = 'Letzte Einträge'
+[Popular]
+    others = 'Einträge'
 [error404]
     other = 'Diese Seite existiert (noch) nicht, gehen Sie zu zurück auf'
 [home]
@@ -10,3 +12,5 @@
     other = 'Vorheriger Eintrag'
 [next]
     other = 'Nächster Eintrag'
+[tags]
+    other = 'Tags'

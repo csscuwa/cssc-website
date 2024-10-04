@@ -5,9 +5,11 @@
     </div>
 
     <div class="post-content">
-        <p>
-            {{ .Content }}
-        </p>
+        {{ .Content }}
     </div>
+    <!-- Back to top button -->
+    {{ if .Site.Params.ShowBackToTopButton }}
+        {{ partial "back-to-top.html" . }}
+    {{ end }}
 </div>
 

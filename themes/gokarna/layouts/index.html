@@ -2,35 +2,47 @@
 <section class="home-about">
     <h1 class="welcome">{{ .Site.Params.Welcome | markdownify }}</h1>
     <div class="hero">
-        {{ if isset .Site.Params "herourl" }}
+    {{ if isset .Site.Params "herourl" }}
         <img src='{{ .Site.BaseURL }}{{ .Site.Params.HeroURL }}' alt="{{ .Site.Params.HeroAltText|default "hero" }}" />
-        {{ end }}
-	</div>
+    {{ end }}
+    </div>
 </section>
 
 <div class="flex-break"></div>
 
-<!-- Render content/_index.md if it exists and isn't empty -->
-{{ if (and (fileExists "content/_index.md") .Content) }}
-<hr>
-<section class="home-content">
-    {{ .Content }}
-</section>
+{{ if isset .Site.Params "socialicons" }}
+<div class="social-icons">
+    <ul class="social-icons-list">
+        {{ range .Site.Params.SocialIcons }}
+        <li class="social-icon">
+            <a href="{{ .url }}" {{ if .rel }}rel="{{ .rel }}"{{ end }} aria-label="Learn more on {{ .name }}">
+                <img class="svg-inject" src="/svg/icons/{{ .name | lower }}.svg" alt="">
+            </a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
+
+{{ if os.FileExists "index-about.md" }}
+<div class="markdown-content">
+    {{ readFile "index-about.md" | markdownify }}
+</div>
 {{ end }}
 
 {{ if isset .Site.Params "showpostsonhomepage" }}
 
     <div class="home-posts list-posts">
-        <h2>{{ i18n (.Site.Params.ShowPostsOnHomePage | humanize) }} Posts</h2>
+        <h2>{{ i18n (.Site.Params.ShowPostsOnHomePage | humanize) }}</h2>
 
     {{ $posts := where .Site.Pages "Params.type" "post" }}
 
     {{ if eq .Site.Params.ShowPostsOnHomePage "popular" }}
-        {{ range $posts.ByWeight | first 4 }}
+        {{ range $posts.ByWeight | first (or .Site.Params.NumberPostsOnHomePage 4) }}
             {{- partial "list-posts.html" . -}}
         {{ end }}
     {{ else if eq .Site.Params.ShowPostsOnHomePage "recent" }}
-        {{ range $posts.ByDate.Reverse | first 4 }}
+        {{ range $posts.ByDate.Reverse | first (or .Site.Params.NumberPostsOnHomePage 4) }}
             {{- partial "list-posts.html" . -}}
         {{ end }}
     {{ end }}
