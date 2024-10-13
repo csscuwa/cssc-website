@@ -4,10 +4,10 @@
 
 Ensure hugo is installed on your system: https://gohugo.io/installation/
 
-Clone the repository and initialise submodules.
+Clone the repository and change to the new directory.
 ```bash
 git clone https://github.com/csscuwa/cssc-website
-git submodule init
+cd cssc-website
 ```
 
 Run `hugo server` in the root directory of this repository to preview the site locally.
