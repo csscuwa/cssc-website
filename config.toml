@@ -21,8 +21,8 @@ pygmentsStyle = "monokai"
   metaKeywords = ["Computer Science Students' Club", "CSSC", "UWA", "CSSC UWA"]
 
   # Home
-  welcome = """WELCOME TO THE  
-    COMPUTER SCIENCE  
+  welcome = """WELCOME TO THE
+    COMPUTER SCIENCE
     STUDENTS' CLUB"""
 
 [menu]
@@ -71,3 +71,5 @@ pygmentsStyle = "monokai"
     startLevel = 1
     endLevel = 9
     ordered = false
+  [markup.goldmark.renderer]
+    unsafe = true

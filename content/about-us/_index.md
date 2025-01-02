@@ -20,16 +20,45 @@ We run events such as sausage sizzles, games nights, laser tag and quiz nights.
 
 Meet our amazing 2024 committee!
 
-- Rory (President)
-- Hendrik (Vice President)
-- Ralf (Treasurer)
-- Austin (Secretary)
-- Krish (Marketing Officer)
-- Ben (OCM)
-- Katia (OCM)
-- Aaron (OCM)
-- Ryan (OCM)
-- Sze Ying (OCM)
-- Joshua (OCM)
-- Robert (OCM)
-- Samuel (OCM)
+<img src="/images/people/committee.jpg" />
+
+Our executive team:
+
+<div class="exec-table">
+    <div class="exec-entry exec-president">
+        <img src="/images/people/rory.jpg" />
+        <p><strong>President</strong></p>
+        <p>Rory</p>
+    </div>
+    <div class="exec-entry exec-vpresident">
+        <img src="/images/people/hendrik.jpg" />
+        <p><strong>Vice President</strong></p>
+        <p>Hendrik</p>
+    </div>
+    <div class="exec-entry exec-secretary">
+        <img src="/images/people/placeholder.jpg" />
+        <p><strong>Secretary</strong></p>
+        <p>Austin</p>
+    </div>
+    <div class="exec-entry exec-treasurer">
+        <img src="/images/people/ralf.jpg" />
+        <p><strong>Treasurer</strong></p>
+        <p>Ralf</p>
+    </div>
+    <div class="exec-entry exec-mo">
+        <img src="/images/people/krish.jpg" />
+        <p><strong>Marketing Officer</strong></p>
+        <p>Krish</p>
+    </div>
+</div>
+
+Our OCMs:
+
+- Ben
+- Katia
+- Aaron
+- Ryan
+- Sze Ying
+- Joshua
+- Robert
+- Samuel
