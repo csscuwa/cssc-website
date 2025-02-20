@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSSC | Signup</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.min.js" integrity="sha256-2Pjr1OlpZMY6qesJM68t2v39t+lMLvxwpa8QlRjJroA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="header">
+    <img src="/imgs/cssc_logo.svg" alt="" class="logoimg">
+    <img src="/imgs/cssc_text.svg" alt="" class="textimg">
+</div>
+    <div style="display: flex; flex-direction: column; align-items: center; padding-bottom: 60px;">
+
+        <div style="display: flex; flex-direction: row; align-items: center;" >
+            <img style=" width: 15vw" src="/imgs/454398839_3888965018058364_5013182144992291720_n.jpg">
+            <img style=" width: 15vw" src="/imgs/465189728_499040156616617_2864461606455008889_n.jpg">
+            <img style="width: 15vw" src="/imgs/Hatsune-Miku-Transparent-Background.png">
+            <img style="width: 15vw" src="/imgs/440968102_233421026529993_5947156839027937010_n.jpg">
+            <img style=" width: 15vw" src="/imgs/436452276_1076990743390435_6451512500569877344_n.jpg">
+        </div>
+
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSegIRkC5qOFBtQ6uraN1PA-Lj_U-9LTicPr2BljoSd89kkTMg/formResponse"
+          target="_self"
+          id="bootstrapForm"
+          method="POST">
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+
+        <fieldset style="border: 0; background: antiquewhite; padding: 0; margin: 0;">
+            <h2>CSSC Signup Form</h2>
+        </fieldset>
+
+
+            <!-- Field type: "short" id: "495797064" -->
+            <fieldset>
+<!--                <legend for="495797064">Given Name(s)</legend>-->
+                <div class="form-group">
+                    <div class="field-label">
+                        <label>Given Name(s)</label>
+                        <label style="color: red">*</label>
+                    </div>
+                    <br>
+                    <input id="134214737" type="text" name="entry.134214737" class="form-control" placeholder="Your answer" required>
+                </div>
+            </fieldset>
+
+
+            <!-- Field type: "short" id: "1093882982" -->
+            <fieldset>
+<!--                <legend for="1093882982">Surname</legend>-->
+                <div class="field-label">
+                    <label>Last Name</label>
+                    <label style="color: red">*</label>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input id="1690665221" type="text" name="entry.1690665221" class="form-control" placeholder="Your answer" required>
+                </div>
+            </fieldset>
+
+
+            <!-- Field type: "short" id: "97153590" -->
+            <fieldset>
+<!--                <legend for="97153590">Student Number</legend>-->
+                <div class="field-label">
+                    <label>Student Number</label>
+                    <label style="color: red">*</label>
+                </div>
+                <br>
+                <div class="form-group">
+                    <input id="62391732" type="text" name="entry.62391732" class="form-control" placeholder="Your answer" required>
+                </div>
+            </fieldset>
+
+
+            <!-- Field type: "short" id: "1681002672" -->
+            <fieldset>
+                <div class="field-label">
+                    <label>Student Email (Regular email is fine)</label>
+                    <label style="color: red">*</label>
+                </div>
+                <br>
+<!--                <legend for="1681002672">Student email (regular is fine)</legend>-->
+                <div class="form-group">
+                    <input id="1410634400" type="text" name="entry.1410634400" class="form-control" placeholder="Your answer" required>
+                </div>
+            </fieldset>
+
+
+            <!-- Field type: "choices" id: "1196198412" -->
+
+            <fieldset>
+                <div class="field-label">
+                    <label>Would you like to subscribe to our mailing list?</label>
+                    <label style="color: red">*</label>
+                </div>
+                <br>
+<!--                <legend for="1196198412">Subscribe to mailing list?</legend>-->
+                <div class="form-group">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.291210666" value="Yes" required>
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="entry.291210666" value="No" required>
+                            No
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <input type="hidden" name="fvv" value="1">
+            <input type="hidden" name="fbzx" value="4634207392392700988">
+            <!--
+                CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
+                This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
+                Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
+                We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
+            -->
+            <input type="hidden" name="pageHistory" value="0">
+
+            <br>
+
+            <input class="submit-button" type="submit" value="Submit">
+
+        </div>
+    </form>
+    </div>
+    <script>
+        $('#bootstrapForm').submit(function (event) {
+            event.preventDefault()
+            var extraData = {}
+            $('#bootstrapForm').ajaxSubmit({
+                data: extraData,
+                dataType: 'jsonp',  // This won't really work. It's just to use a GET instead of a POST to allow cookies from different domain.
+                error: function () {
+                    // Submit of form should be successful but JSONP callback will fail because Google Forms
+                    // does not support it, so this is handled as a failure.
+                    window.location = '/signup/thank-you'
+                    // You can also redirect the user to a custom thank-you page:
+                    // window.location = 'http://www.mydomain.com/thankyoupage.html'
+                }
+            })
+        })
+    </script>
+</div>
+</body>
+</html>
