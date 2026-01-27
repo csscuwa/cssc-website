@@ -26,39 +26,26 @@ Our executive team:
 
 <div class="exec-table">
     <div class="exec-entry exec-president">
-        <img src="/images/people/rory.jpg" />
+        <img src="/images/people/placeholder.jpg" />
         <p><strong>President</strong></p>
-        <p>Rory</p>
+        <p>Ethan</p>
     </div>
     <div class="exec-entry exec-vpresident">
-        <img src="/images/people/hendrik.jpg" />
+        <img src="/images/people/placeholder.jpg" />
         <p><strong>Vice President</strong></p>
-        <p>Hendrik</p>
+        <p>Trinity</p>
     </div>
     <div class="exec-entry exec-secretary">
         <img src="/images/people/placeholder.jpg" />
         <p><strong>Secretary</strong></p>
-        <p>Austin</p>
+        <p>Ben</p>
     </div>
     <div class="exec-entry exec-treasurer">
-        <img src="/images/people/ralf.jpg" />
+        <img src="/images/people/placeholder.jpg" />
         <p><strong>Treasurer</strong></p>
-        <p>Ralf</p>
-    </div>
-    <div class="exec-entry exec-mo">
-        <img src="/images/people/krish.jpg" />
-        <p><strong>Marketing Officer</strong></p>
-        <p>Krish</p>
+        <p>UNKNOWN</p>
     </div>
 </div>
 
 Our OCMs:
-
-- Ben
-- Katia
-- Aaron
-- Ryan
-- Sze Ying
-- Joshua
-- Robert
-- Samuel
+- To be decided
