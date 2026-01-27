@@ -18,9 +18,7 @@ We run events such as sausage sizzles, games nights, laser tag and quiz nights.
 
 ## Our Committee
 
-Meet our amazing 2024 committee!
-
-<img src="/images/people/committee.jpg" />
+Meet our amazing 2026 Executive Committee!
 
 Our executive team:
 
